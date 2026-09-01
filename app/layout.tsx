@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
 
   title: {
-    default: 'Cashflow — Payday Cycle Finance App for Malaysia',
+    default: 'Cashflow | Not a tracking app',
     template: '%s — Cashflow',
   },
   description:
