@@ -47,20 +47,19 @@ export default function CTABanner() {
         <BlurFade delay={0.18} duration={0.5}>
           <div className="flex items-center justify-between flex-wrap gap-8 pt-12 border-t border-white/10">
             <p className="text-[17px] font-normal text-white/55 leading-[1.7] max-w-[380px]">
-              Start free. No credit card needed. Available on iOS and Android
-              soon.
+              Start free. No credit card needed. Available on iOS and Android.
             </p>
 
             <div className="flex gap-3 flex-wrap">
               <a
                 href="#pricing"
-                className="inline-flex items-center gap-2 text-[15px] font-bold text-[#111] bg-lime rounded-full px-9 py-4 no-underline transition-opacity duration-150 hover:opacity-85"
+                className="inline-flex items-center gap-2 text-[15px] font-bold text-[#111] bg-lime rounded-full px-9 py-4 no-underline transition-[background-color,color] duration-150 hover:bg-black hover:text-white"
               >
                 {t.pricing.free.cta}
                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
                   <path
                     d="M3 7h8M7 3l4 4-4 4"
-                    stroke="#111"
+                    stroke="currentColor"
                     strokeWidth="1.5"
                     strokeLinecap="round"
                     strokeLinejoin="round"

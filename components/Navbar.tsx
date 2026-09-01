@@ -109,7 +109,7 @@ export default function Navbar() {
           <a
             href="#pricing"
             onClick={smoothScroll}
-            className="hidden lg:block text-[13px] font-bold rounded-full px-5 py-2 no-underline hover:opacity-85 transition-opacity duration-150 text-[#111] bg-lime"
+            className="hidden lg:block text-[13px] font-bold rounded-full px-5 py-2 no-underline transition-[background-color,color] duration-150 text-[#111] bg-lime hover:bg-black hover:text-white"
           >
             {t.nav.downloadApp}
           </a>
@@ -151,7 +151,7 @@ export default function Navbar() {
               <a
                 href="#pricing"
                 onClick={(e) => { smoothScroll(e); setMenuOpen(false); }}
-                className="block text-center text-[15px] font-bold rounded-xl py-3.5 no-underline text-[#111] bg-lime"
+                className="block text-center text-[15px] font-bold rounded-xl py-3.5 no-underline transition-[background-color,color] duration-150 text-[#111] bg-lime hover:bg-black hover:text-white"
               >
                 {t.nav.downloadApp}
               </a>

@@ -12,7 +12,7 @@ import { useInView } from "@/lib/useInView";
 import { BlurFade } from "@/components/ui/blur-fade";
 
 const inputClass =
-  "w-full bg-input border border-theme rounded-xl px-4 py-[14px] text-[15px] text-input outline-none transition-[border-color] duration-150 focus:border-[#C0F158]";
+  "w-full bg-input border border-theme rounded-xl px-4 py-[14px] text-[15px] text-input outline-hidden transition-[border-color] duration-150 focus:border-[#C0F158]";
 
 export default function Contact() {
   const { t } = useLanguage();
@@ -212,7 +212,7 @@ export default function Contact() {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="flex items-center justify-center gap-2 text-[15px] font-bold text-[#202020] bg-lime border-none rounded-xl p-[14px] cursor-pointer disabled:cursor-not-allowed disabled:opacity-70 transition-opacity duration-150 hover:opacity-85"
+                  className="flex items-center justify-center gap-2 text-[15px] font-bold text-[#202020] bg-lime border-none rounded-xl p-[14px] cursor-pointer disabled:cursor-not-allowed disabled:opacity-70 transition-[background-color,color] duration-150 hover:bg-black hover:text-white"
                 >
                   {loading ? (
                     <span className="flex items-center gap-2">

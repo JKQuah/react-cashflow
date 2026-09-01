@@ -39,11 +39,11 @@ export default function AppShowcase() {
             <div className="flex gap-4 flex-wrap">
               <a
                 href="#features"
-                className="inline-flex items-center gap-2 text-sm font-bold rounded-full px-7 py-3.5 no-underline hover:opacity-85 transition-opacity duration-150 text-[#111] bg-lime"
+                className="inline-flex items-center gap-2 text-sm font-bold rounded-full px-7 py-3.5 no-underline transition-[background-color,color] duration-150 text-[#111] bg-lime hover:bg-black hover:text-white"
               >
                 Explore Features
                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                  <path d="M3 7h8M7 3l4 4-4 4" stroke="#111" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                  <path d="M3 7h8M7 3l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </a>
               <a
