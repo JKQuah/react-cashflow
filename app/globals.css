@@ -94,6 +94,10 @@ body {
   outline-offset: 2px;
 }
 
+select:focus-visible {
+  outline: none;
+}
+
 /* Selection */
 ::selection {
   background: rgba(192, 241, 88, 0.3);
