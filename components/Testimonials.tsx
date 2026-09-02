@@ -65,13 +65,24 @@ function Slide({
   const rotateY = useTransform(scrollYProgress, ryInput, ryOutput);
   const opacity = useTransform(scrollYProgress, opIn, opOut);
 
-  // Fade the rotating container to 0 when near edge-on (±90°)
-  // so the side-edge of the 3D-stacked layers is never visible.
-  const edgeFade = useTransform(
-    rotateY,
-    [-90, -72, 0, 72, 90],
-    [0, 0, 1, 0, 0],
-  );
+  // Compute edgeFade directly from scrollYProgress (no chained MotionValue)
+  // so the GPU path stays: scrollYProgress → edgeFade in one step.
+  // rotateY hits ±72° at 80% through each flipDur segment.
+  let efIn: number[];
+  let efOut: number[];
+  if (index === 0) {
+    // no flip-in, only flip-out at the end
+    efIn  = [0, e - flipDur, e - 0.2 * flipDur, e];
+    efOut = [1, 1,           0,                  0];
+  } else if (index === total - 1) {
+    // no flip-out, only flip-in at the start
+    efIn  = [s, s + 0.2 * flipDur, s + flipDur, 1];
+    efOut = [0, 0,                  1,           1];
+  } else {
+    efIn  = [s, s + 0.2 * flipDur, s + flipDur, e - flipDur, e - 0.2 * flipDur, e];
+    efOut = [0, 0,                  1,           1,           0,                  0];
+  }
+  const edgeFade = useTransform(scrollYProgress, efIn, efOut);
 
   const avatarSeed = AVATAR_SEEDS[index] ?? AVATAR_SEEDS[0];
 
@@ -81,7 +92,7 @@ function Slide({
   return (
     <motion.div
       className="absolute inset-0 flex items-center justify-center"
-      style={{ opacity }}
+      style={{ opacity, willChange: 'opacity' }}
     >
       {/* Perspective lives on the static parent, not the rotating child */}
       <div className="[perspective:1200px] [perspective-origin:50%_50%]">
@@ -93,6 +104,8 @@ function Slide({
             height: "clamp(300px, 44vh, 420px)",
             rotateY,
             opacity: edgeFade,
+            willChange: 'transform, opacity',
+            backfaceVisibility: 'hidden',
           }}
         >
           {/* Cross background — vertical bar — sits at z=0 (base plane) */}
@@ -207,7 +220,7 @@ function Slide({
 export default function Testimonials() {
   const { t } = useLanguage();
   const isMobile = useMediaQuery("(max-width: 640px)");
-  const items = t.testimonials.items.slice(0, 3);
+  const items = t.testimonials.items.slice(0, 4);
   const total = items.length;
 
   const containerRef = useRef<HTMLDivElement>(null);
