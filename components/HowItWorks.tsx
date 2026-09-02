@@ -2,8 +2,6 @@
 
 import { useRef } from "react";
 import { motion, useScroll, useTransform, type MotionValue } from "motion/react";
-import { useOneWayProgress } from "@/lib/useOneWayProgress";
-import { useScrollSkipOnReturn } from "@/lib/useScrollSkipOnReturn";
 import { useLanguage } from "@/lib/i18n";
 
 type StepItem = { number: string; title: string; desc: string };
@@ -77,9 +75,6 @@ export default function HowItWorks() {
     target: containerRef,
     offset: ["start start", "end end"],
   });
-  const oneWayProgress = useOneWayProgress(scrollYProgress);
-  useScrollSkipOnReturn(containerRef, oneWayProgress);
-
   return (
     <section
       id="how-it-works"
@@ -107,7 +102,7 @@ export default function HowItWorks() {
                 step={step}
                 index={i}
                 total={total}
-                scrollYProgress={oneWayProgress}
+                scrollYProgress={scrollYProgress}
               />
             ))}
           </div>

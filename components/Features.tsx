@@ -2,8 +2,6 @@
 
 import { useRef } from 'react';
 import { motion, useScroll, useTransform, type MotionValue } from 'motion/react';
-import { useOneWayProgress } from '@/lib/useOneWayProgress';
-import { useScrollSkipOnReturn } from '@/lib/useScrollSkipOnReturn';
 import { useMediaQuery } from '@/lib/useMediaQuery';
 import { CalendarCheck, BellRinging, CreditCard, ChartLine, ArrowsClockwise, Target } from '@phosphor-icons/react';
 import { useLanguage } from '@/lib/i18n';
@@ -97,10 +95,7 @@ export default function Features() {
     target: containerRef,
     offset: ['start start', 'end end'],
   });
-  const oneWayProgress = useOneWayProgress(scrollYProgress);
-  useScrollSkipOnReturn(containerRef, oneWayProgress);
-
-  const progressW = useTransform(oneWayProgress, [0, 1], ['0%', '100%']);
+  const progressW = useTransform(scrollYProgress, [0, 1], ['0%', '100%']);
 
   return (
     <section
@@ -151,7 +146,7 @@ export default function Features() {
                 feature={feature}
                 index={i}
                 total={total}
-                scrollYProgress={oneWayProgress}
+                scrollYProgress={scrollYProgress}
                 isTablet={isTablet}
                 isMobile={isMobile}
               />

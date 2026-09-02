@@ -29,7 +29,7 @@ export default function AppShowcase() {
         <motion.div
           initial={{ x: -60, opacity: 0 }}
           whileInView={{ x: 0, opacity: 1 }}
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: false, amount: 0.3 }}
           transition={{ duration: 0.65, ease: [0.23, 1, 0.32, 1] }}
         >
           <BlurFade delay={0.08} duration={0.55}>

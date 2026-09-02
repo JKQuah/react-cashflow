@@ -33,7 +33,7 @@ export function BlurFade({
   ...props
 }: BlurFadeProps) {
   const ref = useRef(null);
-  const inViewResult = useInView(ref, { once: true, margin: '-60px' });
+  const inViewResult = useInView(ref, { once: false, margin: '-60px' });
   const isInView = !inView || inViewResult;
 
   const axisKey = direction === 'left' || direction === 'right' ? 'x' : 'y';
