@@ -13,6 +13,7 @@ export default function Hero() {
     <section
       id="hero"
       className="bg-theme border-b border-theme transition-theme relative overflow-hidden flex flex-col justify-end min-h-svh pt-16"
+      style={{ willChange: 'transform' }}
     >
       <div
         className="wrap hero-content"
