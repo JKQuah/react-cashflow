@@ -1,7 +1,5 @@
 "use client";
 
-import { useRef } from "react";
-import { motion, useScroll, useTransform } from "motion/react";
 import { useLanguage } from "@/lib/i18n";
 import { BlurFade } from "@/components/ui/blur-fade";
 import { AuroraText } from "@/components/ui/aurora-text";
@@ -11,23 +9,13 @@ export default function Hero() {
   const { t, lang } = useLanguage();
   const { theme } = useTheme();
 
-  const heroRef = useRef<HTMLElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: heroRef,
-    offset: ["start start", "end start"],
-  });
-
-  const contentY = useTransform(scrollYProgress, [0, 1], ["0%", "-22%"]);
-
   return (
     <section
-      ref={heroRef}
       id="hero"
       className="bg-theme border-b border-theme transition-theme relative overflow-hidden flex flex-col justify-end min-h-svh pt-16"
     >
-      <motion.div
+      <div
         className="wrap hero-content"
-        style={{ y: contentY }}
       >
         {/* Giant headline */}
         <div className="mb-[60px]">
@@ -131,7 +119,7 @@ export default function Hero() {
             </div>
           </div>
         </BlurFade>
-      </motion.div>
+      </div>
 
       {/* Scroll indicator */}
       <div className="absolute bottom-8 right-10 flex flex-col items-center gap-2 pointer-events-none">
