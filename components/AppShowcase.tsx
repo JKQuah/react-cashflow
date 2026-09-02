@@ -7,6 +7,14 @@ import { useMediaQuery } from '@/lib/useMediaQuery';
 import { Iphone } from '@/components/ui/iphone';
 import type { CSSProperties } from 'react';
 
+function smoothScroll(e: React.MouseEvent<HTMLAnchorElement>) {
+  const href = e.currentTarget.getAttribute('href');
+  if (!href?.startsWith('#')) return;
+  e.preventDefault();
+  const target = document.querySelector(href);
+  if (target) target.scrollIntoView({ behavior: 'smooth' });
+}
+
 export default function AppShowcase() {
   const { t } = useLanguage();
   const isMobile = useMediaQuery('(max-width: 640px)');
@@ -40,6 +48,7 @@ export default function AppShowcase() {
             <div className="flex gap-4 flex-wrap">
               <a
                 href="#features"
+                onClick={smoothScroll}
                 className="inline-flex items-center gap-2 text-sm font-bold rounded-full px-7 py-3.5 no-underline transition-[background-color,color] duration-150 text-[#111] bg-lime hover:bg-black hover:text-white"
               >
                 Explore Features
@@ -49,6 +58,7 @@ export default function AppShowcase() {
               </a>
               <a
                 href="#how-it-works"
+                onClick={smoothScroll}
                 className="text-secondary hover:text-primary border-[1.5px] border-theme inline-flex items-center gap-2 text-sm font-semibold rounded-full px-7 py-3.5 no-underline transition-[color,border-color] duration-150 bg-transparent"
               >
                 How it works
