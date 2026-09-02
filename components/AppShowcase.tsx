@@ -14,6 +14,7 @@ export default function AppShowcase() {
   return (
     <section
       className={`stack-section bg-surface-alt border-b border-theme z-[2] transition-theme ${isMobile ? 'py-[60px]' : 'py-[120px]'}`}
+      style={{ willChange: 'transform' }}
     >
       <div className="wrap showcase-grid">
         {/* Left: text */}
