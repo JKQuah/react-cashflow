@@ -146,18 +146,23 @@ const translations = {
       items: [
         {
           name: "Admellis C.",
-          location: "Singapore",
+          location: "United States",
           text: "Setting my payday date changed everything. Now I can see exactly how much buffer I have before my next pay, not just what the calendar says.",
         },
         {
           name: "Henry Q.",
-          location: "Kuala Lumpur",
+          location: "Singapore",
           text: "The credit cutoff reminders saved me twice already. I never knew when my statement closed, now I plan around it.",
         },
         {
           name: "Ellie W.",
-          location: "Kuala Lumpur",
+          location: "Malaysia",
           text: "Finally an app that tracks whether I paid by credit or debit. I can see which expenses hit my card cutoff this cycle vs what is on debit.",
+        },
+        {
+          name: "Raymond L.",
+          location: "Hong Kong",
+          text: "I love the next cycle outlook. I can see what is coming up and plan my spending accordingly.",
         },
       ],
     },
@@ -366,18 +371,23 @@ const translations = {
       items: [
         {
           name: "Admellis C.",
-          location: "新加坡",
+          location: "美国",
           text: "设置发薪日之后，一切都变了。现在我能清楚看到下次发薪前还有多少缓冲，而不只是日历显示的数字。",
         },
         {
           name: "Henry Q.",
-          location: "吉隆坡",
+          location: "新加坡",
           text: "信用卡截止日提醒已经帮我避免了两次财务被动。以前根本不知道账单什么时候截止，现在可以提前规划了。",
         },
         {
           name: "Ellie W.",
-          location: "吉隆坡",
+          location: "马来西亚",
           text: "终于有一款应用能区分信用卡和借记卡消费。我能清楚看到哪些支出计入本期账单，哪些是直接扣款。",
+        },
+        {
+          name: "Raymond L.",
+          location: "香港",
+          text: "我爱下一个周期的展望功能。我可以看到即将发生的事情，并相应地计划我的支出。",
         },
       ],
     },
@@ -391,7 +401,7 @@ const translations = {
         },
         {
           q: "什么是薪资周期？为什么它更准确？",
-          a: "薪资周期是指从一次发薪日到下一次发薪日之间的时段，例如每月25日至次月24日。这比1月1日至31日的日历视图更能真实反映你的现金流动方式。",
+          a: "薪资周期是指从一次发薪日到下一次发薪日之间的时段，例如每月25日至次月24日。这比1月1日至31日的日历视图更能真实反映你的现金流动方式，因为这才是你的实际资金流动。",
         },
         {
           q: "信用卡截止日追踪是如何工作的？",
