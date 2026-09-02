@@ -10,12 +10,10 @@ import {
 import { Star } from "@phosphor-icons/react";
 import { useLanguage } from "@/lib/i18n";
 import { useMediaQuery } from "@/lib/useMediaQuery";
-import { useScrollSkipOnReturn } from "@/lib/useScrollSkipOnReturn";
-import { useOneWayProgress } from "@/lib/useOneWayProgress";
 
 type Testimonial = { name: string; location: string; text: string };
 
-const AVATAR_SEEDS = ["ou1hb75h", "ohl26olj", "16i5hp5n"];
+const AVATAR_SEEDS = ["ou1hb75h", "ohl26olj", "16i5hp5n", "ixsyeazx"];
 const avatarStyle = "dylan";
 
 function Slide({
@@ -100,9 +98,10 @@ function Slide({
           {/* Cross background — vertical bar — sits at z=0 (base plane) */}
           <div
             className="absolute inset-y-0 bg-surface rounded-[24px] transition-[background-color] duration-[250ms]"
-            style={isMobile
-              ? { left: "calc(50% - 100px)", width: "200px" }
-              : { left: "32%", right: "32%" }
+            style={
+              isMobile
+                ? { left: "calc(50% - 100px)", width: "200px" }
+                : { left: "32%", right: "32%" }
             }
           />
 
@@ -130,7 +129,9 @@ function Slide({
             style={{
               top: isMobile ? "6%" : "8%",
               left: isMobile ? "0" : "14%",
-              padding: isMobile ? "8px 12px" : "clamp(10px, 1.6vh, 16px) clamp(12px, 1.6vw, 20px)",
+              padding: isMobile
+                ? "8px 12px"
+                : "clamp(10px, 1.6vh, 16px) clamp(12px, 1.6vw, 20px)",
               minWidth: isMobile ? undefined : "clamp(120px, 15vw, 180px)",
               maxWidth: isMobile ? "42%" : undefined,
               transform: "translateZ(20px)",
@@ -156,7 +157,9 @@ function Slide({
             style={{
               top: isMobile ? "6%" : "15%",
               right: isMobile ? "0" : "14%",
-              padding: isMobile ? "8px 12px" : "clamp(10px, 1.6vh, 16px) clamp(12px, 1.6vw, 20px)",
+              padding: isMobile
+                ? "8px 12px"
+                : "clamp(10px, 1.6vh, 16px) clamp(12px, 1.6vw, 20px)",
               maxWidth: isMobile ? "42%" : "clamp(140px, 18vw, 200px)",
               transform: "translateZ(20px)",
             }}
@@ -181,7 +184,9 @@ function Slide({
             style={{
               bottom: isMobile ? "-8%" : 0,
               left: 0,
-              padding: isMobile ? "10px 14px" : "clamp(12px, 1.8vh, 18px) clamp(14px, 1.8vw, 22px)",
+              padding: isMobile
+                ? "10px 14px"
+                : "clamp(12px, 1.8vh, 18px) clamp(14px, 1.8vw, 22px)",
               maxWidth: isMobile ? "55%" : "min(360px, 52%)",
               transform: "translateZ(20px)",
             }}
@@ -210,8 +215,6 @@ export default function Testimonials() {
     target: containerRef,
     offset: ["start start", "end end"],
   });
-  const oneWayProgress = useOneWayProgress(scrollYProgress);
-  useScrollSkipOnReturn(containerRef, oneWayProgress);
 
   return (
     <section className="stack-section bg-surface-alt border-b border-theme transition-theme z-[7]">
